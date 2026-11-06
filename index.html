@@ -1,65 +1,74 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portofolio Mia Silvia Yuliati - Mahasiswa Informatika UNUSIDA.">
+
+    <meta name="description" content="Portofolio Mia Silvia Yuliati, mahasiswa Informatika Universitas Nahdlatul Ulama Sidoarjo.">
+    <meta name="author" content="Mia Silvia Yuliati">
+
     <title>Mia Silvia Yuliati | Personal Portfolio</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
+        /* =====================================
+           ROOT & THEME
+        ===================================== */
+
         :root {
-            --primary: #172b4d;
-            --primary-light: #243f68;
+            --navy: #14213d;
+            --navy-light: #1e3359;
             --orange: #f28c28;
-            --orange-hover: #df7410;
-            --background: #f7f8fc;
+            --orange-dark: #dc7417;
+
+            --bg: #f8fafc;
             --surface: #ffffff;
-            --surface-soft: #eef2f8;
-            --text: #172b4d;
-            --muted: #68778d;
-            --border: #e1e6ef;
-            --shadow: 0 10px 30px rgba(23,43,77,.08);
-            --header-bg: rgba(255,255,255,.94);
+            --text: #182235;
+            --muted: #667085;
+            --border: #e7ebf1;
+
+            --shadow: 0 10px 35px rgba(20, 33, 61, 0.07);
+            --shadow-hover: 0 20px 45px rgba(20, 33, 61, 0.13);
+
+            --nav-bg: rgba(255, 255, 255, 0.88);
         }
 
-        body.dark-mode {
-            --primary: #f28c28;
-            --primary-light: #ffad52;
-            --background: #101827;
-            --surface: #182438;
-            --surface-soft: #202e43;
-            --text: #f0f4fa;
-            --muted: #aab7ca;
-            --border: #2d3d55;
-            --shadow: 0 10px 30px rgba(0,0,0,.2);
-            --header-bg: rgba(16,24,39,.95);
+        body.dark {
+            --bg: #0c1220;
+            --surface: #141e30;
+            --text: #edf2fa;
+            --muted: #a2aec0;
+            --border: #29364b;
+
+            --shadow: 0 10px 35px rgba(0, 0, 0, 0.18);
+            --shadow-hover: 0 20px 45px rgba(0, 0, 0, 0.3);
+
+            --nav-bg: rgba(12, 18, 32, 0.9);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
             scroll-behavior: smooth;
+            scroll-padding-top: 90px;
         }
 
         body {
             font-family: 'DM Sans', sans-serif;
-            background: var(--background);
+            background: var(--bg);
             color: var(--text);
             line-height: 1.7;
-            transition: background .3s, color .3s;
-        }
-
-        h1,h2,h3,h4 {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.3;
+            transition: background 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
         }
 
         a {
@@ -72,108 +81,165 @@
             display: block;
         }
 
+        button {
+            font-family: inherit;
+        }
+
         .container {
-            width: 90%;
-            max-width: 1150px;
+            width: min(1120px, 90%);
             margin: auto;
         }
 
         .section {
             padding: 100px 0;
-            scroll-margin-top: 80px;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-subtitle {
-            color: var(--orange);
-            font-size: .8rem;
-            font-weight: 800;
-            letter-spacing: 3px;
+            position: relative;
+            overflow: hidden;
         }
 
         .section-title {
-            font-size: 2.2rem;
-            margin: 10px 0;
+            text-align: center;
+            margin-bottom: 55px;
         }
 
-        .section-title span {
+        .section-label {
+            display: inline-block;
+            color: var(--orange);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(28px, 4vw, 38px);
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .section-title p {
+            max-width: 620px;
+            margin: 12px auto 0;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .highlight {
             color: var(--orange);
         }
 
-        .section-description {
-            color: var(--muted);
-            max-width: 600px;
-            margin: auto;
+        /* =====================================
+           BACKGROUND PER SECTION
+        ===================================== */
+
+        #home {
+            background: linear-gradient(135deg, #f5f8ff, #fff7ed);
         }
 
-        /* BUTTON */
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 9px;
-            padding: 12px 22px;
-            border-radius: 7px;
-            font-weight: 700;
-            font-size: .9rem;
-            transition: .25s;
-            cursor: pointer;
-            border: 1px solid transparent;
+        #about {
+            background: #ffffff;
         }
 
-        .btn-primary {
-            background: var(--orange);
-            color: white;
+        #education {
+            background: #f2f6fc;
         }
 
-        .btn-primary:hover {
-            background: var(--orange-hover);
-            transform: translateY(-3px);
+        #skills {
+            background: #fff8ef;
         }
 
-        .btn-outline {
-            color: var(--text);
-            border-color: var(--border);
-            background: transparent;
+        #projects {
+            background: #f5f7fb;
         }
 
-        .btn-outline:hover {
-            color: white;
-            background: var(--primary);
-            border-color: var(--primary);
-            transform: translateY(-3px);
+        #experience {
+            background: #fff5eb;
         }
 
-        /* NAVBAR */
+        #achievements {
+            background: #f1f6ff;
+        }
 
-        header {
+        #certificates {
+            background: #fffaf2;
+        }
+
+        #contact {
+            background: #f2f5fa;
+        }
+
+        body.dark #home {
+            background: linear-gradient(135deg, #101a2d, #241b19);
+        }
+
+        body.dark #about {
+            background: #111b2c;
+        }
+
+        body.dark #education {
+            background: #172237;
+        }
+
+        body.dark #skills {
+            background: #211d1a;
+        }
+
+        body.dark #projects {
+            background: #111b2c;
+        }
+
+        body.dark #experience {
+            background: #211d1a;
+        }
+
+        body.dark #achievements {
+            background: #172237;
+        }
+
+        body.dark #certificates {
+            background: #211f1b;
+        }
+
+        body.dark #contact {
+            background: #172237;
+        }
+
+        /* =====================================
+           NAVBAR
+        ===================================== */
+
+        .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: var(--header-bg);
-            backdrop-filter: blur(15px);
+            background: var(--nav-bg);
+            backdrop-filter: blur(18px);
             border-bottom: 1px solid var(--border);
+            transition: 0.3s ease;
         }
 
-        .navbar {
-            min-height: 75px;
+        .nav-container {
+            width: min(1120px, 90%);
+            margin: auto;
+            height: 76px;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
         .logo {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.35rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 21px;
             font-weight: 800;
-            color: var(--text);
+            color: var(--navy);
+        }
+
+        body.dark .logo {
+            color: #ffffff;
         }
 
         .logo span {
@@ -183,652 +249,1174 @@
         .nav-menu {
             display: flex;
             align-items: center;
-            gap: 27px;
+            gap: 28px;
             list-style: none;
         }
 
-        .nav-link {
+        .nav-menu a {
             position: relative;
-            font-size: .85rem;
-            font-weight: 600;
             color: var(--muted);
-            padding: 10px 0;
-            transition: .25s;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 8px 0;
+            transition: color 0.3s ease;
         }
 
-        .nav-link:hover,
-        .nav-link.active {
+        .nav-menu a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 3px;
+            left: 0;
+            bottom: 0;
+            background: var(--orange);
+            border-radius: 5px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
             color: var(--orange);
         }
 
-        .nav-link::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 2px;
-            width: 0;
-            height: 2px;
-            background: var(--orange);
-            transition: .25s;
-        }
-
-        .nav-link.active::after,
-        .nav-link:hover::after {
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
             width: 100%;
         }
 
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
 
         .theme-toggle,
         .menu-toggle {
-            border: none;
-            background: var(--surface-soft);
+            border: 1px solid var(--border);
+            background: var(--surface);
             color: var(--text);
             width: 40px;
             height: 40px;
-            border-radius: 50%;
+            border-radius: 12px;
             cursor: pointer;
-            font-size: 1rem;
-            transition: .25s;
+            transition: 0.3s ease;
         }
 
         .theme-toggle:hover,
         .menu-toggle:hover {
-            color: var(--orange);
+            background: var(--orange);
+            color: white;
+            border-color: var(--orange);
+            transform: rotate(8deg);
         }
 
         .menu-toggle {
             display: none;
         }
 
-        /* HERO */
+        /* =====================================
+           BUTTON
+        ===================================== */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 13px 22px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            border: 1px solid transparent;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease,
+                color 0.3s ease;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -130%;
+            width: 65%;
+            height: 100%;
+            background: linear-gradient(
+                110deg,
+                transparent,
+                rgba(255,255,255,0.35),
+                transparent
+            );
+            transform: skewX(-25deg);
+            transition: left 0.65s ease;
+        }
+
+        .btn:hover::before {
+            left: 150%;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(242, 140, 40, 0.25);
+        }
+
+        .btn:active {
+            transform: scale(0.96);
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-dark);
+        }
+
+        .btn-outline {
+            border-color: var(--border);
+            color: var(--text);
+            background: var(--surface);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--orange);
+            color: var(--orange);
+        }
+
+        /* =====================================
+           HERO
+        ===================================== */
 
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 130px 0 80px;
-            background:
-                radial-gradient(circle at 85% 25%, rgba(242,140,40,.10), transparent 25%),
-                var(--background);
+            padding-top: 110px;
+            position: relative;
         }
 
-        .hero-content {
+        .hero-grid {
             display: grid;
-            grid-template-columns: 1.3fr .7fr;
+            grid-template-columns: 1.2fr 0.8fr;
             align-items: center;
-            gap: 60px;
+            gap: 65px;
         }
 
-        .hero-label {
-            display: inline-block;
-            padding: 7px 14px;
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 8px 15px;
+            background: rgba(242, 140, 40, 0.1);
+            border: 1px solid rgba(242, 140, 40, 0.2);
             border-radius: 30px;
-            background: rgba(242,140,40,.12);
-            color: var(--orange);
-            font-size: .8rem;
-            font-weight: 700;
+            color: var(--orange-dark);
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 23px;
+        }
+
+        body.dark .hero-badge {
+            color: #ffb66f;
+        }
+
+        .hero-badge span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.12);
+        }
+
+        .hero-content h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(38px, 5.5vw, 64px);
+            line-height: 1.15;
+            font-weight: 800;
+            letter-spacing: -2px;
             margin-bottom: 22px;
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem,5vw,4rem);
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
-
-        .hero h1 span {
+        .hero-content h1 span {
             color: var(--orange);
         }
 
-        .hero h2 {
-            font-size: 1.25rem;
-            font-weight: 600;
+        .hero-content p {
             color: var(--muted);
-            margin-bottom: 20px;
-        }
-
-        .hero-description {
-            color: var(--muted);
-            max-width: 620px;
+            font-size: 16px;
+            max-width: 580px;
             margin-bottom: 30px;
         }
 
         .hero-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 13px;
         }
 
         .hero-social {
             display: flex;
-            gap: 15px;
-            margin-top: 30px;
+            gap: 13px;
+            margin-top: 35px;
         }
 
         .hero-social a {
             width: 42px;
             height: 42px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
+            border-radius: 12px;
             background: var(--surface);
             border: 1px solid var(--border);
-            color: var(--text);
-            transition: .25s;
+            color: var(--muted);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.3s ease;
         }
 
         .hero-social a:hover {
             background: var(--orange);
             color: white;
             border-color: var(--orange);
-            transform: translateY(-4px);
+            transform: translateY(-5px) rotate(-5deg);
         }
 
-        .hero-image {
-            position: relative;
+        .hero-image-area {
             display: flex;
             justify-content: center;
-        }
-
-        .hero-image::before {
-            content: "";
-            position: absolute;
-            width: 310px;
-            height: 310px;
-            border-radius: 50%;
-            background: var(--orange);
-            opacity: .13;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-        }
-
-        .hero-image img {
             position: relative;
-            width: 300px;
-            height: 360px;
-            object-fit: cover;
-            object-position: center top;
-            border-radius: 20px;
-            border: 5px solid var(--surface);
-            box-shadow: var(--shadow);
         }
 
-        /* ABOUT */
+        .hero-image-frame {
+            width: min(350px, 100%);
+            aspect-ratio: 1 / 1.12;
+            padding: 12px;
+            background: linear-gradient(145deg, var(--orange), var(--navy));
+            border-radius: 35px;
+            transform: rotate(3deg);
+            box-shadow: 0 25px 60px rgba(20, 33, 61, 0.2);
+            transition: transform 0.4s ease;
+        }
 
-        .about-content {
+        .hero-image-frame:hover {
+            transform: rotate(0deg) scale(1.025);
+        }
+
+        .hero-image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 27px;
+            background: #e5e7eb;
+        }
+
+        .floating-card {
+            position: absolute;
+            bottom: 30px;
+            left: -20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 13px 18px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .floating-card i {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(242, 140, 40, 0.12);
+            color: var(--orange);
+            border-radius: 10px;
+        }
+
+        .floating-card strong {
+            display: block;
+            font-size: 12px;
+        }
+
+        .floating-card small {
+            color: var(--muted);
+            font-size: 10px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        /* =====================================
+           ABOUT
+        ===================================== */
+
+        .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 55px;
             align-items: center;
         }
 
-        .about-text p {
-            color: var(--muted);
+        .about-visual {
+            background: linear-gradient(145deg, #14213d, #304c77);
+            border-radius: 25px;
+            min-height: 360px;
+            padding: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-visual::before,
+        .about-visual::after {
+            content: "";
+            position: absolute;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 50%;
+        }
+
+        .about-visual::before {
+            width: 260px;
+            height: 260px;
+        }
+
+        .about-visual::after {
+            width: 340px;
+            height: 340px;
+        }
+
+        .about-visual-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+        }
+
+        .about-visual-content i {
+            font-size: 65px;
+            color: var(--orange);
+            margin-bottom: 20px;
+        }
+
+        .about-visual-content h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .about-visual-content p {
+            font-size: 13px;
+            color: #d5dcec;
+        }
+
+        .about-content h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 27px;
             margin-bottom: 17px;
-            text-align: justify;
+        }
+
+        .about-content p {
+            color: var(--muted);
+            margin-bottom: 16px;
+            font-size: 15px;
         }
 
         .about-info {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-top: 25px;
         }
 
-        .info-card {
-            padding: 20px;
-            background: var(--surface);
+        .info-item {
+            padding: 14px;
+            background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 12px;
-            box-shadow: var(--shadow);
         }
 
-        .info-card i {
-            font-size: 1.4rem;
-            color: var(--orange);
-            margin-bottom: 10px;
-        }
-
-        .info-card h3 {
-            font-size: .9rem;
-            margin-bottom: 5px;
-        }
-
-        .info-card p {
-            font-size: .82rem;
+        .info-item small {
+            display: block;
             color: var(--muted);
+            font-size: 11px;
+            margin-bottom: 3px;
         }
 
-        /* EDUCATION */
+        .info-item strong {
+            font-size: 13px;
+            overflow-wrap: anywhere;
+        }
 
-        .education-list {
+        /* =====================================
+           EDUCATION
+        ===================================== */
+
+        .timeline {
             max-width: 800px;
             margin: auto;
-            display: grid;
-            gap: 20px;
+            position: relative;
         }
 
-        .education-card {
-            display: flex;
-            gap: 20px;
-            padding: 25px;
-            border-radius: 12px;
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            bottom: 10px;
+            left: 19px;
+            width: 2px;
+            background: var(--orange);
+            opacity: 0.4;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 30px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 8px;
+            top: 5px;
+            width: 24px;
+            height: 24px;
+            background: var(--orange);
+            border: 5px solid var(--surface);
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px rgba(242, 140, 40, 0.3);
+        }
+
+        .timeline-card {
             background: var(--surface);
             border: 1px solid var(--border);
+            border-radius: 17px;
+            padding: 24px;
             box-shadow: var(--shadow);
+            transition: 0.3s ease;
         }
 
-        .education-icon {
-            flex-shrink: 0;
-            width: 55px;
-            height: 55px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            background: rgba(242,140,40,.13);
+        .timeline-card:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .timeline-card .year {
+            display: inline-block;
             color: var(--orange);
-            font-size: 1.5rem;
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 8px;
         }
 
-        .education-card h3 {
-            font-size: 1.05rem;
+        .timeline-card h3 {
+            font-size: 18px;
             margin-bottom: 5px;
         }
 
-        .period {
-            color: var(--orange);
-            font-size: .85rem;
-            font-weight: 700;
-        }
-
-        .education-card p {
+        .timeline-card p {
             color: var(--muted);
-            font-size: .9rem;
+            font-size: 13px;
         }
 
-        /* SKILLS */
+        /* =====================================
+           SKILLS
+        ===================================== */
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(3,1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
         .skill-card {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 12px;
             padding: 25px;
+            border-radius: 17px;
             box-shadow: var(--shadow);
-            transition: .25s;
+            transition: 0.35s ease;
         }
 
         .skill-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--orange);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(242, 140, 40, 0.5);
         }
 
-        .skill-card i {
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(242, 140, 40, 0.12);
             color: var(--orange);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+            border-radius: 13px;
+            font-size: 20px;
+            margin-bottom: 18px;
+            transition: 0.3s ease;
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: rotate(-8deg) scale(1.08);
+            background: var(--orange);
+            color: white;
         }
 
         .skill-card h3 {
-            font-size: 1rem;
-            margin-bottom: 10px;
+            font-size: 16px;
+            margin-bottom: 8px;
         }
 
         .skill-card p {
+            font-size: 13px;
             color: var(--muted);
-            font-size: .88rem;
         }
 
-        /* PROJECTS */
+        /* =====================================
+           PROJECTS
+        ===================================== */
 
-        .project-grid {
+        .projects-grid {
             display: grid;
-            grid-template-columns: repeat(2,1fr);
-            gap: 22px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
         }
 
         .project-card {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 14px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: .25s;
+            transition: 0.35s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--orange);
+            transform: translateY(-9px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(242, 140, 40, 0.5);
         }
 
-        .project-top {
-            height: 150px;
+        .project-image {
+            height: 210px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--surface-soft);
+            background: linear-gradient(135deg, #172b4d, #405c85);
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
 
-        .project-top i {
-            font-size: 3.5rem;
+        .project-image::before {
+            content: "";
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            border: 1px solid rgba(255,255,255,0.13);
+            border-radius: 50%;
+        }
+
+        .project-image i {
+            font-size: 65px;
             color: var(--orange);
+            position: relative;
+            z-index: 1;
+            transition: 0.4s ease;
         }
 
-        .project-info {
+        .project-card:hover .project-image i {
+            transform: scale(1.18) rotate(-8deg);
+        }
+
+        .project-content {
             padding: 25px;
         }
 
-        .project-info h3 {
-            font-size: 1.1rem;
+        .project-content h3 {
+            font-size: 18px;
             margin-bottom: 10px;
         }
 
-        .project-info p {
+        .project-content p {
+            font-size: 13px;
             color: var(--muted);
-            font-size: .88rem;
-            margin-bottom: 15px;
+            margin-bottom: 17px;
         }
 
-        .tech-list {
+        .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 7px;
-            margin-bottom: 18px;
+            gap: 8px;
+            margin-bottom: 20px;
         }
 
-        .tech-list span {
+        .tag {
+            background: rgba(242, 140, 40, 0.1);
+            color: var(--orange-dark);
             padding: 5px 10px;
-            background: var(--surface-soft);
-            color: var(--text);
-            border-radius: 5px;
-            font-size: .73rem;
-            font-weight: 600;
+            font-size: 10px;
+            font-weight: 800;
+            border-radius: 6px;
         }
 
-        /* EXPERIENCE */
+        body.dark .tag {
+            color: #ffb66f;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--orange);
+            font-size: 13px;
+            font-weight: 800;
+            transition: gap 0.3s ease;
+        }
+
+        .project-link:hover {
+            gap: 14px;
+        }
+
+        /* =====================================
+           EXPERIENCE
+        ===================================== */
 
         .experience-card {
-            max-width: 800px;
+            max-width: 850px;
             margin: auto;
-            padding: 30px;
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 14px;
-            box-shadow: var(--shadow);
-            display: flex;
+            border-radius: 20px;
+            padding: 35px;
+            display: grid;
+            grid-template-columns: 75px 1fr;
             gap: 25px;
+            box-shadow: var(--shadow);
+            transition: 0.35s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow-hover);
         }
 
         .experience-icon {
-            flex-shrink: 0;
-            width: 60px;
-            height: 60px;
+            width: 75px;
+            height: 75px;
+            background: var(--navy);
+            color: var(--orange);
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(242,140,40,.13);
+            font-size: 30px;
+        }
+
+        .experience-content .period {
             color: var(--orange);
-            border-radius: 12px;
-            font-size: 1.7rem;
+            font-size: 12px;
+            font-weight: 800;
         }
 
-        .experience-card h3 {
-            font-size: 1.15rem;
+        .experience-content h3 {
+            font-size: 21px;
+            margin: 5px 0;
         }
 
-        .experience-card .period {
-            margin: 5px 0 12px;
-        }
-
-        .experience-card p,
-        .experience-card li {
+        .experience-content h4 {
+            font-size: 13px;
             color: var(--muted);
-            font-size: .9rem;
+            margin-bottom: 14px;
         }
 
-        .experience-card ul {
+        .experience-content ul {
             padding-left: 20px;
-            margin-top: 10px;
+            color: var(--muted);
+            font-size: 13px;
         }
 
-        /* ACHIEVEMENTS */
+        .experience-content li {
+            margin-bottom: 7px;
+        }
+
+        /* =====================================
+           ACHIEVEMENTS
+        ===================================== */
 
         .achievement-grid {
             display: grid;
-            grid-template-columns: repeat(3,1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
         .achievement-card {
-            text-align: center;
-            padding: 30px 20px;
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 17px;
+            padding: 28px 22px;
+            text-align: center;
             box-shadow: var(--shadow);
+            transition: 0.35s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
         }
 
         .achievement-card i {
-            font-size: 2rem;
+            font-size: 32px;
             color: var(--orange);
             margin-bottom: 15px;
         }
 
         .achievement-card h3 {
-            font-size: 1rem;
-            margin-bottom: 8px;
+            font-size: 23px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin-bottom: 7px;
         }
 
         .achievement-card p {
             color: var(--muted);
-            font-size: .85rem;
+            font-size: 12px;
         }
 
-        /* CERTIFICATES */
+        /* =====================================
+           CERTIFICATES
+        ===================================== */
 
         .certificate-grid {
             display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
         }
 
         .certificate-card {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 17px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: .25s;
+            transition: 0.35s ease;
         }
 
         .certificate-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--orange);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(242, 140, 40, 0.5);
         }
 
         .certificate-preview {
-            height: 210px;
-            background: var(--surface-soft);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 190px;
+            background: #e9edf3;
+            position: relative;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body.dark .certificate-preview {
+            background: #26344a;
         }
 
         .certificate-preview img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            padding: 8px;
+            padding: 10px;
+            transition: transform 0.4s ease;
         }
 
-        .pdf-preview {
+        .certificate-card:hover .certificate-preview img {
+            transform: scale(1.05);
+        }
+
+        .certificate-preview.pdf-preview {
             flex-direction: column;
-            gap: 10px;
-            color: #e34b4b;
+            gap: 12px;
+            color: var(--orange);
         }
 
-        .pdf-preview i {
-            font-size: 4.5rem;
+        .certificate-preview.pdf-preview i {
+            font-size: 55px;
         }
 
-        .pdf-preview span {
-            font-size: .85rem;
+        .certificate-preview.pdf-preview span {
+            font-size: 12px;
             font-weight: 800;
-            letter-spacing: 2px;
+            color: var(--text);
         }
 
-        .certificate-info {
+        .certificate-content {
             padding: 18px;
         }
 
-        .certificate-info h3 {
-            font-size: .95rem;
-            margin-bottom: 7px;
+        .certificate-content h3 {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 8px;
         }
 
-        .certificate-info p {
-            font-size: .82rem;
+        .certificate-content p {
+            font-size: 12px;
             color: var(--muted);
+            margin-bottom: 14px;
+        }
+
+        .certificate-content a {
+            color: var(--orange);
+            font-size: 12px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: gap 0.3s ease;
+        }
+
+        .certificate-content a:hover {
+            gap: 12px;
+        }
+
+        /* =====================================
+           CONTACT
+        ===================================== */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 35px;
+        }
+
+        .contact-info h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 25px;
             margin-bottom: 15px;
         }
 
-        .certificate-actions {
+        .contact-info > p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .certificate-actions .btn {
-            flex: 1;
-            min-width: 100px;
-            padding: 10px;
-            font-size: .78rem;
-        }
-
-        /* CONTACT */
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 20px;
-        }
-
-        .contact-card {
-            padding: 25px 15px;
-            text-align: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 18px;
+            padding: 15px;
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            transition: .25s;
+            border-radius: 13px;
+            transition: 0.3s ease;
         }
 
-        .contact-card:hover {
-            transform: translateY(-5px);
+        .contact-item:hover {
+            transform: translateX(6px);
             border-color: var(--orange);
         }
 
-        .contact-card i {
+        .contact-item i {
+            width: 43px;
+            height: 43px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(242, 140, 40, 0.12);
             color: var(--orange);
-            font-size: 1.8rem;
-            margin-bottom: 12px;
+            border-radius: 11px;
+            font-size: 17px;
+        }
+
+        .contact-item small {
+            color: var(--muted);
+            display: block;
+            font-size: 11px;
+        }
+
+        .contact-item strong {
+            font-size: 13px;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .contact-card h3 {
-            font-size: .95rem;
-            margin-bottom: 7px;
+            font-size: 23px;
+            margin-bottom: 12px;
         }
 
         .contact-card p {
             color: var(--muted);
-            font-size: .8rem;
-            overflow-wrap: anywhere;
+            font-size: 14px;
+            margin-bottom: 22px;
         }
 
-        /* FOOTER */
+        /* =====================================
+           FOOTER
+        ===================================== */
 
         footer {
-            background: #14233b;
+            background: #101b30;
             color: white;
-            padding: 30px 0;
-            text-align: center;
+            padding: 28px 0;
         }
 
-        footer p {
-            font-size: .85rem;
-            color: #c5cedb;
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
         }
 
-        footer span {
+        .footer-content p {
+            color: #b6c1d1;
+            font-size: 12px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            color: #cbd5e1;
+            transition: 0.3s ease;
+        }
+
+        .footer-social a:hover {
             color: var(--orange);
+            transform: translateY(-3px);
         }
 
-        /* RESPONSIVE */
+        /* =====================================
+           BACK TO TOP
+        ===================================== */
 
-        @media (max-width:950px) {
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 45px;
+            height: 45px;
+            border: none;
+            background: var(--orange);
+            color: white;
+            border-radius: 13px;
+            font-size: 17px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: 0.3s ease;
+            z-index: 900;
+            box-shadow: 0 8px 20px rgba(242, 140, 40, 0.3);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background: var(--orange-dark);
+        }
+
+        /* =====================================
+           SKELETON SHIMMER
+        ===================================== */
+
+        .skeleton {
+            position: absolute;
+            inset: 0;
+            background: #e5e7eb;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        body.dark .skeleton {
+            background: #29364b;
+        }
+
+        .skeleton::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            transform: translateX(-100%);
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.7),
+                transparent
+            );
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .image-loading {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .image-loaded {
+            opacity: 1;
+        }
+
+        /* =====================================
+           SCROLL REVEAL
+        ===================================== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition:
+                opacity 0.75s ease,
+                transform 0.75s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: 0.75s ease;
+        }
+
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* =====================================
+           RESPONSIVE
+        ===================================== */
+
+        @media (max-width: 1000px) {
             .nav-menu {
-                gap: 15px;
+                gap: 17px;
             }
 
-            .nav-link {
-                font-size: .78rem;
+            .nav-menu a {
+                font-size: 12px;
             }
 
-            .hero-content {
-                gap: 30px;
+            .hero-grid {
+                gap: 35px;
             }
 
             .certificate-grid {
-                grid-template-columns: repeat(2,1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @media (max-width:760px) {
+        @media (max-width: 850px) {
             .menu-toggle {
                 display: block;
             }
 
             .nav-menu {
                 position: absolute;
-                top: 75px;
+                top: 76px;
                 left: 0;
                 width: 100%;
+                padding: 20px 5%;
                 background: var(--surface);
                 border-bottom: 1px solid var(--border);
-                padding: 20px 5%;
-                display: none;
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 15px;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: 0.3s ease;
             }
 
             .nav-menu.show {
-                display: flex;
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
             }
 
-            .hero-content,
-            .about-content {
+            .nav-menu a {
+                font-size: 14px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr 0.8fr;
+                gap: 25px;
+            }
+
+            .hero-content h1 {
+                font-size: 43px;
+            }
+
+            .skills-grid,
+            .achievement-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .section {
+                padding: 75px 0;
+            }
+
+            .hero {
+                padding-top: 125px;
+                padding-bottom: 70px;
+            }
+
+            .hero-grid,
+            .about-grid,
+            .contact-grid {
                 grid-template-columns: 1fr;
             }
 
-            .hero-text {
+            .hero-content {
                 text-align: center;
+                order: 2;
             }
 
-            .hero-description {
+            .hero-content p {
                 margin-left: auto;
                 margin-right: auto;
             }
@@ -838,60 +1426,99 @@
                 justify-content: center;
             }
 
-            .hero-image {
-                grid-row: 1;
+            .hero-image-area {
+                order: 1;
+                margin-bottom: 20px;
             }
 
-            .hero-image img {
-                width: 240px;
-                height: 290px;
+            .hero-image-frame {
+                width: min(270px, 80%);
             }
 
-            .skills-grid,
-            .achievement-grid {
-                grid-template-columns: repeat(2,1fr);
+            .floating-card {
+                left: 0;
+                bottom: 15px;
             }
 
-            .project-grid {
-                grid-template-columns: 1fr;
+            .about-visual {
+                min-height: 280px;
             }
 
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width:500px) {
-            .section {
-                padding: 75px 0;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .hero h1 {
-                font-size: 2.4rem;
-            }
-
-            .about-info,
-            .skills-grid,
-            .achievement-grid,
+            .projects-grid,
             .certificate-grid {
                 grid-template-columns: 1fr;
             }
 
-            .education-card,
+            .skills-grid,
+            .achievement-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
             .experience-card {
+                grid-template-columns: 1fr;
+                padding: 25px;
+            }
+
+            .about-info {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-content {
                 flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-card {
+                padding: 25px;
+            }
+
+            .section-title {
+                margin-bottom: 38px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .skills-grid,
+            .achievement-grid,
+            .about-info {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 37px;
             }
 
             .hero-buttons .btn {
                 width: 100%;
             }
 
-            .certificate-preview {
-                height: 220px;
+            .nav-container {
+                height: 68px;
+            }
+
+            .nav-menu {
+                top: 68px;
+            }
+        }
+
+        /* =====================================
+           REDUCED MOTION
+        ===================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal,
+            .reveal-left {
+                opacity: 1;
+                transform: none;
             }
         }
     </style>
@@ -899,24 +1526,31 @@
 
 <body>
 
-    <!-- NAVBAR -->
-    <header>
-        <div class="container navbar">
-            <a href="#beranda" class="logo">MIA<span>.</span></a>
+    <!-- =====================================
+         NAVBAR
+    ====================================== -->
+
+    <header class="navbar">
+        <div class="nav-container">
+
+            <a href="#home" class="logo">
+                MIA<span>.</span>
+            </a>
 
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#beranda" class="nav-link active">Beranda</a></li>
-                <li><a href="#tentang" class="nav-link">Tentang</a></li>
-                <li><a href="#pendidikan" class="nav-link">Pendidikan</a></li>
-                <li><a href="#keahlian" class="nav-link">Keahlian</a></li>
-                <li><a href="#proyek" class="nav-link">Proyek</a></li>
-                <li><a href="#pengalaman" class="nav-link">Pengalaman</a></li>
-                <li><a href="#pencapaian" class="nav-link">Pencapaian</a></li>
-                <li><a href="#sertifikat" class="nav-link">Sertifikat</a></li>
-                <li><a href="#kontak" class="nav-link">Kontak</a></li>
+                <li><a href="#home" class="active">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#education">Pendidikan</a></li>
+                <li><a href="#skills">Keahlian</a></li>
+                <li><a href="#projects">Proyek</a></li>
+                <li><a href="#experience">Pengalaman</a></li>
+                <li><a href="#achievements">Pencapaian</a></li>
+                <li><a href="#certificates">Sertifikat</a></li>
+                <li><a href="#contact">Kontak</a></li>
             </ul>
 
             <div class="nav-actions">
+
                 <button class="theme-toggle" id="themeToggle" aria-label="Ganti tema">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -924,770 +1558,1189 @@
                 <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
                     <i class="fas fa-bars"></i>
                 </button>
+
             </div>
         </div>
     </header>
 
-    <!-- BERANDA -->
-    <section id="beranda" class="hero">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <span class="hero-label">
-                    <i class="fas fa-hand-sparkles"></i>
-                    Selamat Datang di Portofolio Saya
-                </span>
 
-                <h1>Halo, Saya <span>Mia Silvia Yuliati</span></h1>
-                <h2>Mahasiswa Informatika | IT Enthusiast</h2>
+    <!-- =====================================
+         HERO / BERANDA
+    ====================================== -->
 
-                <p class="hero-description">
-                    Saya merupakan mahasiswa S1 Informatika di Universitas
-                    Nahdlatul Ulama Sidoarjo yang memiliki ketertarikan pada
-                    pengembangan sistem informasi, pemrograman, teknologi,
-                    serta pengelolaan proyek teknologi informasi. Saya senang
-                    mempelajari hal baru dan mengembangkan solusi digital
-                    melalui berbagai proyek.
-                </p>
+    <section class="hero" id="home">
+        <div class="container">
 
-                <div class="hero-buttons">
-                    <a href="#proyek" class="btn btn-primary">
-                        <i class="fas fa-folder-open"></i> Lihat Proyek
-                    </a>
+            <div class="hero-grid">
 
-                    <a href="CV Mia Silvia Yuliati (1).pdf"
-                       class="btn btn-outline" download>
-                        <i class="fas fa-download"></i> Unduh CV
-                    </a>
+                <div class="hero-content">
+
+                    <div class="hero-badge">
+                        <span></span>
+                        Mahasiswa Informatika
+                    </div>
+
+                    <h1>
+                        Halo, Saya <br>
+                        Mia Silvia <span>Yuliati.</span>
+                    </h1>
+
+                    <p>
+                        Mahasiswa S1 Informatika Universitas Nahdlatul Ulama Sidoarjo
+                        yang memiliki ketertarikan pada pengembangan web, teknologi,
+                        sistem informasi, dan pengelolaan proyek.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-folder-open"></i>
+                            Lihat Proyek
+                        </a>
+
+                        <a href="CV-Mia-Silvia-Yuliati.pdf"
+                           class="btn btn-outline"
+                           download>
+                            <i class="fas fa-download"></i>
+                            Unduh CV
+                        </a>
+
+                    </div>
+
+                    <div class="hero-social">
+
+                        <a href="https://github.com/miasilviayuliati-sys"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+
+                        <a href="mailto:miasilviayuliati@gmail.com"
+                           aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+
+                        <a href="https://wa.me/6288226259930"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+
+                    </div>
+
                 </div>
 
-                <div class="hero-social">
-                    <a href="https://github.com/miasilviayuliati-sys"
-                       target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i>
-                    </a>
+                <div class="hero-image-area">
 
-                    <a href="mailto:miasilviayuliati@gmail.com">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+                    <div class="hero-image-frame">
+                        <img
+                            src="Mia 2.jpg"
+                            alt="Foto profil Mia Silvia Yuliati"
+                            fetchpriority="high"
+                        >
+                    </div>
 
-                    <a href="https://wa.me/6288226259930"
-                       target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
+                    <div class="floating-card">
+                        <i class="fas fa-code"></i>
+                        <div>
+                            <strong>Informatics Student</strong>
+                            <small>Learning & Growing</small>
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
 
-            <div class="hero-image">
-                <img src="Mia 2.jpg" alt="Foto Profil Mia Silvia Yuliati">
-            </div>
         </div>
     </section>
 
-    <!-- TENTANG -->
-    <section id="tentang" class="section">
+
+    <!-- =====================================
+         TENTANG SAYA
+    ====================================== -->
+
+    <section class="section" id="about">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">TENTANG SAYA</span>
-                <h2 class="section-title">Mengenal <span>Saya</span></h2>
-                <p class="section-description">
-                    Sekilas tentang latar belakang dan ketertarikan saya.
+
+            <div class="section-title">
+                <span class="section-label">Tentang Saya</span>
+                <h2>Mengenal <span class="highlight">Lebih Dekat</span></h2>
+                <p>
+                    Sedikit informasi mengenai latar belakang dan perjalanan saya.
                 </p>
             </div>
 
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        Perkenalkan, saya Mia Silvia Yuliati, mahasiswa
-                        Program Studi S1 Informatika di Universitas
-                        Nahdlatul Ulama Sidoarjo. Saya memiliki minat
-                        dalam bidang teknologi informasi, khususnya
-                        pengembangan aplikasi, sistem informasi, dan
-                        pengelolaan proyek teknologi.
-                    </p>
+            <div class="about-grid">
 
-                    <p>
-                        Selama menjalani perkuliahan, saya telah terlibat
-                        dalam beberapa proyek akademik, mulai dari
-                        pengembangan sistem pemesanan berbasis QR Code,
-                        aplikasi client-server, hingga proyek Internet
-                        of Things menggunakan Arduino.
-                    </p>
-
-                    <p>
-                        Saya juga aktif dalam organisasi mahasiswa dan
-                        memiliki pengalaman berkoordinasi, bekerja sama
-                        dalam tim, serta mengelola kebutuhan publikasi
-                        kegiatan organisasi.
-                    </p>
-                </div>
-
-                <div class="about-info">
-                    <div class="info-card">
-                        <i class="fas fa-user-graduate"></i>
-                        <h3>Pendidikan</h3>
-                        <p>S1 Informatika</p>
-                    </div>
-
-                    <div class="info-card">
-                        <i class="fas fa-university"></i>
-                        <h3>Universitas</h3>
-                        <p>UNUSIDA</p>
-                    </div>
-
-                    <div class="info-card">
-                        <i class="fas fa-star"></i>
-                        <h3>IPK</h3>
-                        <p>3.94</p>
-                    </div>
-
-                    <div class="info-card">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Domisili</h3>
-                        <p>Sidoarjo, Jawa Timur</p>
+                <div class="about-visual">
+                    <div class="about-visual-content">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Technology Enthusiast</h3>
+                        <p>Explore, Learn, Create, and Grow.</p>
                     </div>
                 </div>
+
+                <div class="about-content">
+
+                    <h3>Halo, saya Mia Silvia Yuliati!</h3>
+
+                    <p>
+                        Saya merupakan mahasiswa S1 Informatika di Universitas
+                        Nahdlatul Ulama Sidoarjo. Saya memiliki minat dalam bidang
+                        teknologi informasi, khususnya pengembangan aplikasi,
+                        website, dan sistem informasi.
+                    </p>
+
+                    <p>
+                        Selama menjalani perkuliahan, saya telah terlibat dalam
+                        beberapa proyek pengembangan sistem, mulai dari aplikasi
+                        pemesanan berbasis QR Code, aplikasi client-server,
+                        hingga proyek berbasis Internet of Things.
+                    </p>
+
+                    <p>
+                        Saya juga aktif dalam organisasi kampus dan memiliki
+                        pengalaman dalam koordinasi tim, pengelolaan publikasi,
+                        serta kolaborasi kegiatan.
+                    </p>
+
+                    <div class="about-info">
+
+                        <div class="info-item">
+                            <small>Nama</small>
+                            <strong>Mia Silvia Yuliati</strong>
+                        </div>
+
+                        <div class="info-item">
+                            <small>Pendidikan</small>
+                            <strong>S1 Informatika</strong>
+                        </div>
+
+                        <div class="info-item">
+                            <small>Universitas</small>
+                            <strong>UNUSIDA</strong>
+                        </div>
+
+                        <div class="info-item">
+                            <small>Domisili</small>
+                            <strong>Sidoarjo</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
+
         </div>
     </section>
 
-    <!-- PENDIDIKAN -->
-    <section id="pendidikan" class="section">
+
+    <!-- =====================================
+         PENDIDIKAN
+    ====================================== -->
+
+    <section class="section" id="education">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">RIWAYAT AKADEMIK</span>
-                <h2 class="section-title">Pendidikan <span>Saya</span></h2>
+
+            <div class="section-title">
+                <span class="section-label">Riwayat Pendidikan</span>
+                <h2>Perjalanan <span class="highlight">Pendidikan</span></h2>
+                <p>
+                    Riwayat pendidikan yang menjadi bagian dari perjalanan saya.
+                </p>
             </div>
 
-            <div class="education-list">
-                <div class="education-card">
-                    <div class="education-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
+            <div class="timeline">
 
-                    <div>
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+
+                        <span class="year">2024 – Sekarang</span>
+
                         <h3>Universitas Nahdlatul Ulama Sidoarjo</h3>
-                        <span class="period">2023 - Sekarang</span>
-                        <p>S1 Informatika</p>
-                        <p>Fakultas Ilmu Komputer</p>
-                        <p>IPK: 3.94</p>
+
+                        <p>
+                            S1 Informatika – Fakultas Ilmu Komputer
+                        </p>
+
+                        <p>
+                            Semester 5 | IPK 3.94
+                        </p>
+
                     </div>
+
                 </div>
 
-                <div class="education-card">
-                    <div class="education-icon">
-                        <i class="fas fa-school"></i>
-                    </div>
+                <div class="timeline-item">
 
-                    <div>
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+
+                        <span class="year">2020 – 2023</span>
+
                         <h3>SMK Negeri 1 Jabon</h3>
-                        <span class="period">2020 - 2023</span>
-                        <p>Jurusan Multimedia</p>
+
+                        <p>
+                            Jurusan Multimedia
+                        </p>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
     </section>
 
-    <!-- KEAHLIAN -->
-    <section id="keahlian" class="section">
+
+    <!-- =====================================
+         KEAHLIAN
+    ====================================== -->
+
+    <section class="section" id="skills">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">KEMAMPUAN</span>
-                <h2 class="section-title">Keahlian <span>Saya</span></h2>
-                <p class="section-description">
-                    Beberapa kemampuan yang saya pelajari dan kembangkan.
+
+            <div class="section-title">
+                <span class="section-label">Keahlian</span>
+                <h2>Bidang yang <span class="highlight">Saya Pelajari</span></h2>
+                <p>
+                    Beberapa bidang dan kemampuan yang saya kembangkan
+                    melalui perkuliahan, organisasi, dan proyek.
                 </p>
             </div>
 
             <div class="skills-grid">
+
                 <div class="skill-card">
-                    <i class="fas fa-code"></i>
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
                     <h3>Web Development</h3>
-                    <p>HTML, CSS, JavaScript, serta pengembangan aplikasi berbasis web.</p>
+                    <p>
+                        Memahami dasar pengembangan website menggunakan
+                        HTML, CSS, dan JavaScript.
+                    </p>
                 </div>
 
                 <div class="skill-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>Mobile Development</h3>
-                    <p>Pengembangan aplikasi mobile menggunakan React Native dan Expo Go.</p>
-                </div>
-
-                <div class="skill-card">
-                    <i class="fas fa-database"></i>
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
                     <h3>Database</h3>
-                    <p>Dasar pengelolaan database menggunakan MySQL dan SQL.</p>
+                    <p>
+                        Memahami dasar pengelolaan database menggunakan
+                        MySQL dan SQL.
+                    </p>
                 </div>
 
                 <div class="skill-card">
-                    <i class="fas fa-server"></i>
+                    <div class="skill-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
                     <h3>Backend Development</h3>
-                    <p>Dasar pengembangan server menggunakan Node.js dan REST API.</p>
+                    <p>
+                        Mengenal pengembangan server menggunakan Node.js
+                        dan konsep client-server.
+                    </p>
                 </div>
 
                 <div class="skill-card">
-                    <i class="fas fa-microchip"></i>
+                    <div class="skill-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Application</h3>
+                    <p>
+                        Memiliki pengalaman membuat dan menjalankan
+                        aplikasi menggunakan React Native dan Expo Go.
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
                     <h3>Internet of Things</h3>
-                    <p>Perancangan dan pengujian proyek IoT menggunakan Arduino dan sensor.</p>
+                    <p>
+                        Mengenal pengembangan perangkat berbasis Arduino
+                        dan sensor ultrasonik.
+                    </p>
                 </div>
 
                 <div class="skill-card">
-                    <i class="fas fa-tasks"></i>
-                    <h3>Project Management</h3>
-                    <p>Analisis kebutuhan, koordinasi tim, pembagian tugas, dan dokumentasi proyek.</p>
+                    <div class="skill-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Teamwork & Coordination</h3>
+                    <p>
+                        Memiliki pengalaman dalam koordinasi tim,
+                        komunikasi, dan kolaborasi organisasi.
+                    </p>
                 </div>
+
             </div>
+
         </div>
     </section>
 
-    <!-- PROYEK -->
-    <section id="proyek" class="section">
+
+    <!-- =====================================
+         PROYEK
+    ====================================== -->
+
+    <section class="section" id="projects">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">PORTOFOLIO</span>
-                <h2 class="section-title">Proyek <span>Saya</span></h2>
-                <p class="section-description">
-                    Beberapa proyek akademik dan pengembangan sistem yang pernah saya kerjakan.
+
+            <div class="section-title">
+                <span class="section-label">Portofolio</span>
+                <h2>Proyek <span class="highlight">Saya</span></h2>
+                <p>
+                    Beberapa proyek yang pernah saya kerjakan dan kembangkan
+                    selama proses pembelajaran.
                 </p>
             </div>
 
-            <div class="project-grid">
+            <div class="projects-grid">
+
+                <!-- PROJECT 1 -->
+
                 <div class="project-card">
-                    <div class="project-top">
-                        <i class="fas fa-utensils"></i>
+
+                    <div class="project-image">
+                        <i class="fas fa-store"></i>
                     </div>
 
-                    <div class="project-info">
+                    <div class="project-content">
+
                         <h3>Food Court UNUSIDA</h3>
+
                         <p>
                             Sistem pemesanan makanan berbasis web menggunakan
-                            QR Code pada meja kantin. Pengguna dapat memindai
-                            QR Code melalui smartphone untuk melihat menu dan
-                            melakukan pemesanan. Proyek ini melibatkan analisis
-                            kebutuhan pengguna, koordinasi tim, dan pengembangan sistem.
+                            QR Code yang memungkinkan pelanggan memesan
+                            makanan melalui perangkat masing-masing.
                         </p>
 
-                        <div class="tech-list">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                            <span>Node.js</span>
-                            <span>MySQL</span>
-                            <span>Socket.IO</span>
+                        <div class="tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Socket.IO</span>
+                            <span class="tag">QR Code</span>
                         </div>
 
                         <a href="https://foodcourt-unusida.duckdns.org/dev/"
-                           target="_blank" rel="noopener noreferrer"
-                           class="btn btn-outline">
-                            <i class="fas fa-external-link-alt"></i> Lihat Proyek
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="project-link">
+                            Lihat Proyek
+                            <i class="fas fa-arrow-right"></i>
                         </a>
+
                     </div>
+
                 </div>
 
+
+                <!-- PROJECT 2 -->
+
                 <div class="project-card">
-                    <div class="project-top">
-                        <i class="fas fa-file-alt"></i>
+
+                    <div class="project-image">
+                        <i class="fas fa-file-signature"></i>
                     </div>
 
-                    <div class="project-info">
+                    <div class="project-content">
+
                         <h3>Aplikasi Pengajuan Surat</h3>
+
                         <p>
-                            Aplikasi pengajuan surat dengan konsep client-server.
-                            Sistem menyediakan formulir pengajuan pada sisi
-                            client dan pengambilan serta pengiriman data melalui
-                            API menggunakan metode GET dan POST.
+                            Aplikasi client-server untuk pengajuan surat
+                            dengan komunikasi data menggunakan metode
+                            GET dan POST melalui REST API.
                         </p>
 
-                        <div class="tech-list">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                            <span>Node.js</span>
-                            <span>REST API</span>
+                        <div class="tags">
+                            <span class="tag">Node.js</span>
+                            <span class="tag">REST API</span>
+                            <span class="tag">GET</span>
+                            <span class="tag">POST</span>
+                            <span class="tag">Client-Server</span>
                         </div>
 
-                        <span class="btn btn-outline">
-                            <i class="fas fa-laptop-code"></i> Proyek Akademik
+                        <span class="project-link">
+                            Proyek Perkuliahan
                         </span>
+
                     </div>
+
                 </div>
 
+
+                <!-- PROJECT 3 -->
+
                 <div class="project-card">
-                    <div class="project-top">
+
+                    <div class="project-image">
                         <i class="fas fa-trash-alt"></i>
                     </div>
 
-                    <div class="project-info">
+                    <div class="project-content">
+
                         <h3>Smart Dustbin dengan Dua Sensor Ultrasonik</h3>
+
                         <p>
-                            Tempat sampah pintar menggunakan dua sensor
-                            ultrasonik. Sensor pertama mendeteksi tangan
-                            untuk membuka tutup otomatis menggunakan servo,
-                            sedangkan sensor kedua mendeteksi tingkat
-                            kepenuhan sampah melalui indikator LED dan buzzer.
+                            Proyek Internet of Things berupa tempat sampah
+                            pintar yang menggunakan dua sensor ultrasonik
+                            untuk mendeteksi objek dan kondisi kapasitas sampah.
                         </p>
 
-                        <div class="tech-list">
-                            <span>Arduino Uno</span>
-                            <span>HC-SR04</span>
-                            <span>Servo</span>
-                            <span>LED</span>
-                            <span>Buzzer</span>
+                        <div class="tags">
+                            <span class="tag">Arduino Uno</span>
+                            <span class="tag">HC-SR04</span>
+                            <span class="tag">Servo</span>
+                            <span class="tag">LED</span>
+                            <span class="tag">Buzzer</span>
                         </div>
 
-                        <span class="btn btn-outline">
-                            <i class="fas fa-microchip"></i> Proyek IoT
+                        <span class="project-link">
+                            Proyek Internet of Things
                         </span>
+
                     </div>
+
                 </div>
+
+
+                <!-- PROJECT 4 -->
 
                 <div class="project-card">
-                    <div class="project-top">
-                        <i class="fas fa-qrcode"></i>
+
+                    <div class="project-image">
+                        <i class="fas fa-utensils"></i>
                     </div>
 
-                    <div class="project-info">
+                    <div class="project-content">
+
                         <h3>Sistem Pemesanan Rumah Makan Padang</h3>
+
                         <p>
-                            Aplikasi pemesanan makanan dan minuman menggunakan
-                            QR Code. Pelanggan dapat memindai QR Code melalui
-                            smartphone untuk mengakses menu dan melakukan
-                            pemesanan. Aplikasi dikembangkan menggunakan
-                            React Native dan berhasil dijalankan serta diuji
-                            langsung melalui smartphone menggunakan Expo Go.
+                            Aplikasi pemesanan makanan dan minuman berbasis
+                            mobile yang memungkinkan pelanggan melakukan
+                            pemesanan melalui QR Code. Aplikasi berhasil
+                            dijalankan dan diuji langsung menggunakan
+                            perangkat HP melalui Expo Go.
                         </p>
 
-                        <div class="tech-list">
-                            <span>React Native</span>
-                            <span>Expo Go</span>
-                            <span>QR Code</span>
-                            <span>Mobile App</span>
+                        <div class="tags">
+                            <span class="tag">React Native</span>
+                            <span class="tag">Expo Go</span>
+                            <span class="tag">QR Code</span>
+                            <span class="tag">Mobile App</span>
                         </div>
 
-                        <span class="btn btn-outline">
-                            <i class="fas fa-mobile-alt"></i> Proyek Mobile
+                        <span class="project-link">
+                            Proyek Perkuliahan
                         </span>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
     </section>
 
-    <!-- PENGALAMAN -->
-    <section id="pengalaman" class="section">
+
+    <!-- =====================================
+         PENGALAMAN ORGANISASI
+    ====================================== -->
+
+    <section class="section" id="experience">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">PENGALAMAN</span>
-                <h2 class="section-title">Pengalaman <span>Organisasi</span></h2>
+
+            <div class="section-title">
+                <span class="section-label">Pengalaman</span>
+                <h2>Pengalaman <span class="highlight">Organisasi</span></h2>
+                <p>
+                    Pengalaman dalam berorganisasi dan berkolaborasi
+                    bersama lingkungan kampus.
+                </p>
             </div>
 
             <div class="experience-card">
+
                 <div class="experience-icon">
                     <i class="fas fa-users"></i>
                 </div>
 
-                <div>
-                    <h3>Koordinator Divisi Media</h3>
-                    <p>HIMA Informatika UNUSIDA</p>
-                    <div class="period">2026 - Sekarang</div>
+                <div class="experience-content">
 
-                    <p>
-                        Bertanggung jawab dalam koordinasi kegiatan dan
-                        kebutuhan media organisasi Himpunan Mahasiswa Informatika.
-                    </p>
+                    <span class="period">2026 – Sekarang</span>
+
+                    <h3>Koordinator Divisi Media</h3>
+
+                    <h4>Himpunan Mahasiswa Informatika UNUSIDA</h4>
 
                     <ul>
-                        <li>Mengoordinasikan anggota dan pembagian tugas divisi.</li>
-                        <li>Mengelola kebutuhan publikasi serta berkolaborasi dalam kegiatan organisasi.</li>
-                        <li>Mendukung penyampaian informasi dan dokumentasi kegiatan organisasi.</li>
+                        <li>
+                            Mengoordinasikan anggota dan pembagian tugas divisi.
+                        </li>
+
+                        <li>
+                            Mengelola kebutuhan publikasi serta berkolaborasi
+                            dalam kegiatan organisasi.
+                        </li>
+
+                        <li>
+                            Mendukung penyampaian informasi dan dokumentasi
+                            kegiatan Himpunan Mahasiswa Informatika.
+                        </li>
                     </ul>
+
                 </div>
+
             </div>
+
         </div>
     </section>
 
-    <!-- PENCAPAIAN -->
-    <section id="pencapaian" class="section">
+
+    <!-- =====================================
+         PENCAPAIAN
+    ====================================== -->
+
+    <section class="section" id="achievements">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">PENCAPAIAN</span>
-                <h2 class="section-title">Hal yang Telah <span>Dicapai</span></h2>
+
+            <div class="section-title">
+                <span class="section-label">Pencapaian</span>
+                <h2>Hal yang <span class="highlight">Telah Saya Capai</span></h2>
+                <p>
+                    Beberapa pencapaian selama perjalanan akademik,
+                    organisasi, dan pengembangan proyek.
+                </p>
             </div>
 
             <div class="achievement-grid">
+
                 <div class="achievement-card">
-                    <i class="fas fa-award"></i>
-                    <h3>IPK 3.94</h3>
-                    <p>Pencapaian akademik selama menempuh pendidikan S1 Informatika.</p>
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>3.94</h3>
+                    <p>IPK Perkuliahan</p>
                 </div>
 
                 <div class="achievement-card">
                     <i class="fas fa-laptop-code"></i>
-                    <h3>Pengembangan Proyek</h3>
-                    <p>Terlibat dalam pengembangan berbagai proyek teknologi dan sistem informasi.</p>
+                    <h3>4+</h3>
+                    <p>Proyek Pembelajaran</p>
                 </div>
 
                 <div class="achievement-card">
                     <i class="fas fa-user-tie"></i>
-                    <h3>Pengalaman Organisasi</h3>
-                    <p>Memiliki pengalaman koordinasi dan pengelolaan divisi organisasi mahasiswa.</p>
+                    <h3>Koordinator</h3>
+                    <p>Divisi Media HIMA Informatika</p>
                 </div>
+
             </div>
+
         </div>
     </section>
 
-    <!-- SERTIFIKAT -->
-    <section id="sertifikat" class="section">
+
+    <!-- =====================================
+         SERTIFIKAT
+    ====================================== -->
+
+    <section class="section" id="certificates">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">DOKUMENTASI</span>
-                <h2 class="section-title">Sertifikat <span>Saya</span></h2>
-                <p class="section-description">
-                    Dokumentasi sertifikat pelatihan, workshop, seminar,
-                    webinar, dan kegiatan yang pernah saya ikuti sebagai
-                    bagian dari pengembangan pengetahuan dan kompetensi diri.
+
+            <div class="section-title">
+                <span class="section-label">Dokumentasi</span>
+                <h2>Sertifikat <span class="highlight">Saya</span></h2>
+                <p>
+                    Dokumentasi sertifikat kegiatan, pelatihan,
+                    dan seminar yang pernah diikuti.
                 </p>
             </div>
 
             <div class="certificate-grid">
 
-                <!-- SERTIFIKAT 1: PNG -->
+                <!-- SERTIFIKAT 1 -->
+
                 <div class="certificate-card">
+
                     <div class="certificate-preview">
-                        <img src="Mia Silvia Yuliati.png"
-                             alt="Sertifikat Pelatihan Web Vol 1 HIMAIF"
-                             loading="lazy">
+                        <img
+                            src="Mia Silvia Yuliati.png"
+                            alt="Sertifikat Pelatihan Web Vol 1"
+                            loading="lazy"
+                        >
                     </div>
 
-                    <div class="certificate-info">
-                        <h3>Pelatihan Web Vol 1 HIMAIF</h3>
+                    <div class="certificate-content">
+
+                        <h3>Pelatihan Web Vol. 1</h3>
+
                         <p>
-                            Sertifikat partisipasi dalam kegiatan Pelatihan
-                            Web Vol 1 yang diselenggarakan oleh Himpunan
-                            Mahasiswa Informatika. Kegiatan ini memberikan
-                            wawasan dan pengalaman dalam mempelajari
-                            dasar-dasar pengembangan website.
+                            Sertifikat partisipasi dalam kegiatan pelatihan
+                            web yang diselenggarakan oleh HIMA Informatika.
                         </p>
 
-                        <div class="certificate-actions">
-                            <a href="Mia Silvia Yuliati.png"
-                               target="_blank" rel="noopener noreferrer"
-                               class="btn btn-primary">
-                                <i class="fas fa-eye"></i> Lihat
-                            </a>
+                        <a href="Mia Silvia Yuliati.png" target="_blank">
+                            Lihat Sertifikat
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
 
-                            <a href="Mia Silvia Yuliati.png"
-                               download class="btn btn-outline">
-                                <i class="fas fa-download"></i> Unduh
-                            </a>
-                        </div>
                     </div>
+
                 </div>
 
-                <!-- SERTIFIKAT 2: JPG/JPEG -->
+
+                <!-- SERTIFIKAT 2 -->
+
                 <div class="certificate-card">
+
                     <div class="certificate-preview">
-                        <img src="PESERTA (2).jpg.jpeg"
-                             alt="Sertifikat Workshop Vibe Coding"
-                             loading="lazy">
+                        <img
+                            src="PESERTA (2).jpg.jpeg"
+                            alt="Sertifikat Workshop Vibe Coding"
+                            loading="lazy"
+                        >
                     </div>
 
-                    <div class="certificate-info">
+                    <div class="certificate-content">
+
                         <h3>Workshop Vibe Coding</h3>
+
                         <p>
-                            Sertifikat partisipasi dalam Workshop Vibe Coding
-                            yang membahas pemanfaatan teknologi dan pendekatan
-                            berbasis AI dalam proses pengembangan aplikasi
-                            serta eksplorasi ide kreatif menjadi solusi digital.
+                            Sertifikat partisipasi dalam kegiatan workshop
+                            Vibe Coding.
                         </p>
 
-                        <div class="certificate-actions">
-                            <a href="PESERTA (2).jpg.jpeg"
-                               target="_blank" rel="noopener noreferrer"
-                               class="btn btn-primary">
-                                <i class="fas fa-eye"></i> Lihat
-                            </a>
+                        <a href="PESERTA (2).jpg.jpeg" target="_blank">
+                            Lihat Sertifikat
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
 
-                            <a href="PESERTA (2).jpg.jpeg"
-                               download class="btn btn-outline">
-                                <i class="fas fa-download"></i> Unduh
-                            </a>
-                        </div>
                     </div>
+
                 </div>
 
-                <!-- SERTIFIKAT 3: PNG -->
+
+                <!-- SERTIFIKAT 3 -->
+
                 <div class="certificate-card">
+
                     <div class="certificate-preview">
-                        <img src="15.png"
-                             alt="Sertifikat UNUSIDA Esport Competition"
-                             loading="lazy">
+                        <img
+                            src="15.png"
+                            alt="Sertifikat UNUSIDA Esport Competition"
+                            loading="lazy"
+                        >
                     </div>
 
-                    <div class="certificate-info">
+                    <div class="certificate-content">
+
                         <h3>UNUSIDA Esport Competition</h3>
+
                         <p>
-                            Sertifikat partisipasi dalam kegiatan UNUSIDA
-                            Esport Competition sebagai bentuk keterlibatan
-                            dalam kegiatan kompetisi dan pengembangan
-                            pengalaman di lingkungan kampus.
+                            Sertifikat kegiatan UNUSIDA Esport Competition.
                         </p>
 
-                        <div class="certificate-actions">
-                            <a href="15.png"
-                               target="_blank" rel="noopener noreferrer"
-                               class="btn btn-primary">
-                                <i class="fas fa-eye"></i> Lihat
-                            </a>
+                        <a href="15.png" target="_blank">
+                            Lihat Sertifikat
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
 
-                            <a href="15.png"
-                               download class="btn btn-outline">
-                                <i class="fas fa-download"></i> Unduh
-                            </a>
-                        </div>
                     </div>
+
                 </div>
 
-                <!-- SERTIFIKAT 4: PDF -->
+
+                <!-- SERTIFIKAT 4 -->
+
                 <div class="certificate-card">
+
                     <div class="certificate-preview pdf-preview">
                         <i class="fas fa-file-pdf"></i>
-                        <span>DOKUMEN PDF</span>
+                        <span>Dokumen Sertifikat PDF</span>
                     </div>
 
-                    <div class="certificate-info">
-                        <h3>Sertifikat Pelatihan</h3>
+                    <div class="certificate-content">
+
+                        <h3>Sertifikat Kegiatan</h3>
+
                         <p>
-                            Bukti partisipasi dalam kegiatan pelatihan
-                            untuk meningkatkan pengetahuan, keterampilan,
-                            serta wawasan dalam bidang teknologi dan
-                            pengembangan kompetensi diri.
+                            Dokumentasi sertifikat kegiatan dalam format PDF.
                         </p>
 
-                        <div class="certificate-actions">
-                            <a href="Mia Silvia Yuliati.pdf"
-                               target="_blank" rel="noopener noreferrer"
-                               class="btn btn-primary">
-                                <i class="fas fa-eye"></i> Lihat PDF
-                            </a>
+                        <a href="Mia Silvia Yuliati.pdf" target="_blank">
+                            Lihat Sertifikat
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
 
-                            <a href="Mia Silvia Yuliati.pdf"
-                               download class="btn btn-outline">
-                                <i class="fas fa-download"></i> Unduh PDF
-                            </a>
-                        </div>
                     </div>
+
                 </div>
 
-                <!-- SERTIFIKAT 5: PDF -->
+
+                <!-- SERTIFIKAT 5 -->
+
                 <div class="certificate-card">
+
                     <div class="certificate-preview pdf-preview">
                         <i class="fas fa-file-pdf"></i>
-                        <span>DOKUMEN PDF</span>
+                        <span>Dokumen Sertifikat PDF</span>
                     </div>
 
-                    <div class="certificate-info">
-                        <h3>Webinar Drone Forensik</h3>
+                    <div class="certificate-content">
+
+                        <h3>Seminar Drone Forensik</h3>
+
                         <p>
-                            Sertifikat partisipasi dalam webinar Drone
-                            Forensik yang memberikan wawasan mengenai
-                            pemanfaatan teknologi drone serta penerapannya
-                            dalam proses investigasi dan forensik digital.
+                            Sertifikat partisipasi dalam kegiatan
+                            Seminar Drone Forensik.
                         </p>
 
-                        <div class="certificate-actions">
-                            <a href="Sertifikat SemuaWebinar Drone Forensik_20.pdf"
-                               target="_blank" rel="noopener noreferrer"
-                               class="btn btn-primary">
-                                <i class="fas fa-eye"></i> Lihat PDF
-                            </a>
+                        <a href="Sertifikat SemuaWebinar Drone Forensik_20.pdf"
+                           target="_blank">
+                            Lihat Sertifikat
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
 
-                            <a href="Sertifikat SemuaWebinar Drone Forensik_20.pdf"
-                               download class="btn btn-outline">
-                                <i class="fas fa-download"></i> Unduh PDF
-                            </a>
-                        </div>
                     </div>
+
                 </div>
 
-                <!-- SERTIFIKAT 6: PDF -->
+
+                <!-- SERTIFIKAT 6 -->
+
                 <div class="certificate-card">
+
                     <div class="certificate-preview pdf-preview">
                         <i class="fas fa-file-pdf"></i>
-                        <span>DOKUMEN PDF</span>
+                        <span>Dokumen Sertifikat PDF</span>
                     </div>
 
-                    <div class="certificate-info">
-                        <h3>Sertifikat Seminar 13 September 2025</h3>
+                    <div class="certificate-content">
+
+                        <h3>Sertifikat Seminar</h3>
+
                         <p>
-                            Sertifikat partisipasi dalam kegiatan seminar
-                            pada 13 September 2025 sebagai bentuk
-                            pengembangan wawasan, pengetahuan, dan
-                            pemahaman terhadap materi yang disampaikan
-                            selama kegiatan.
+                            Dokumentasi sertifikat kegiatan seminar
+                            tanggal 13 September 2025.
                         </p>
 
-                        <div class="certificate-actions">
-                            <a href="Sertifikat Seminar 13 September 2025.pdf"
-                               target="_blank" rel="noopener noreferrer"
-                               class="btn btn-primary">
-                                <i class="fas fa-eye"></i> Lihat PDF
-                            </a>
+                        <a href="Sertifikat Seminar 13 September 2025.pdf"
+                           target="_blank">
+                            Lihat Sertifikat
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
 
-                            <a href="Sertifikat Seminar 13 September 2025.pdf"
-                               download class="btn btn-outline">
-                                <i class="fas fa-download"></i> Unduh PDF
-                            </a>
-                        </div>
                     </div>
+
                 </div>
 
             </div>
+
         </div>
     </section>
 
-    <!-- KONTAK -->
-    <section id="kontak" class="section">
+
+    <!-- =====================================
+         KONTAK
+    ====================================== -->
+
+    <section class="section" id="contact">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">HUBUNGI SAYA</span>
-                <h2 class="section-title">Mari <span>Terhubung</span></h2>
-                <p class="section-description">
-                    Terbuka untuk kesempatan belajar, kolaborasi,
-                    proyek, maupun pengalaman profesional.
+
+            <div class="section-title">
+                <span class="section-label">Hubungi Saya</span>
+                <h2>Mari <span class="highlight">Terhubung</span></h2>
+                <p>
+                    Terbuka untuk peluang kolaborasi, pengalaman baru,
+                    dan kesempatan pengembangan diri.
                 </p>
             </div>
 
-            <div class="contact-content">
-                <a href="mailto:miasilviayuliati@gmail.com"
-                   class="contact-card">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <p>miasilviayuliati@gmail.com</p>
-                </a>
+            <div class="contact-grid">
 
-                <a href="https://wa.me/6288226259930"
-                   target="_blank" rel="noopener noreferrer"
-                   class="contact-card">
-                    <i class="fab fa-whatsapp"></i>
-                    <h3>WhatsApp</h3>
-                    <p>088226259930</p>
-                </a>
+                <div class="contact-info">
 
-                <a href="https://github.com/miasilviayuliati-sys"
-                   target="_blank" rel="noopener noreferrer"
-                   class="contact-card">
-                    <i class="fab fa-github"></i>
-                    <h3>GitHub</h3>
-                    <p>github.com/miasilviayuliati-sys</p>
-                </a>
+                    <h3>Kontak Informasi</h3>
+
+                    <p>
+                        Jangan ragu untuk menghubungi saya melalui
+                        informasi kontak berikut.
+                    </p>
+
+                    <a href="mailto:miasilviayuliati@gmail.com"
+                       class="contact-item">
+
+                        <i class="fas fa-envelope"></i>
+
+                        <div>
+                            <small>Email</small>
+                            <strong>miasilviayuliati@gmail.com</strong>
+                        </div>
+
+                    </a>
+
+                    <a href="https://wa.me/6288226259930"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="contact-item">
+
+                        <i class="fab fa-whatsapp"></i>
+
+                        <div>
+                            <small>WhatsApp</small>
+                            <strong>088226259930</strong>
+                        </div>
+
+                    </a>
+
+                    <a href="https://github.com/miasilviayuliati-sys"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="contact-item">
+
+                        <i class="fab fa-github"></i>
+
+                        <div>
+                            <small>GitHub</small>
+                            <strong>github.com/miasilviayuliati-sys</strong>
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <div class="contact-card">
+
+                    <h3>Tertarik untuk Berkolaborasi?</h3>
+
+                    <p>
+                        Saya senang mendapatkan kesempatan untuk belajar,
+                        berbagi ide, dan berkontribusi dalam proyek
+                        maupun lingkungan profesional.
+                    </p>
+
+                    <a href="mailto:miasilviayuliati@gmail.com"
+                       class="btn btn-primary">
+
+                        <i class="fas fa-paper-plane"></i>
+                        Kirim Email
+
+                    </a>
+
+                </div>
+
             </div>
+
         </div>
     </section>
 
-    <!-- FOOTER -->
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
     <footer>
         <div class="container">
-            <p>
-                © <span id="year"></span>
-                <span>Mia Silvia Yuliati</span>. All Rights Reserved.
-            </p>
+
+            <div class="footer-content">
+
+                <p>
+                    © <span id="currentYear"></span>
+                    Mia Silvia Yuliati. All Rights Reserved.
+                </p>
+
+                <div class="footer-social">
+
+                    <a href="https://github.com/miasilviayuliati-sys"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+
+                    <a href="mailto:miasilviayuliati@gmail.com"
+                       aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+
+                    <a href="https://wa.me/6288226259930"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
     </footer>
 
-    <!-- JAVASCRIPT -->
-    <script>
-        // TAHUN OTOMATIS
-        document.getElementById("year").textContent =
-            new Date().getFullYear();
 
-        // DARK MODE DAN LIGHT MODE
+    <!-- BACK TO TOP -->
+
+    <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script>
+
+        /* =====================================
+           THEME TOGGLE
+        ===================================== */
+
         const themeToggle = document.getElementById("themeToggle");
         const themeIcon = themeToggle.querySelector("i");
 
-        const savedTheme = localStorage.getItem("portfolio-theme");
+        function setTheme(theme) {
+            document.body.classList.toggle("dark", theme === "dark");
 
-        if (savedTheme === "dark") {
-            document.body.classList.add("dark-mode");
-            themeIcon.classList.remove("fa-moon");
-            themeIcon.classList.add("fa-sun");
+            themeIcon.className = theme === "dark"
+                ? "fas fa-sun"
+                : "fas fa-moon";
+
+            localStorage.setItem("portfolio-theme", theme);
         }
 
-        themeToggle.addEventListener("click", function () {
-            document.body.classList.toggle("dark-mode");
+        const savedTheme = localStorage.getItem("portfolio-theme");
 
-            const isDark =
-                document.body.classList.contains("dark-mode");
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            setTheme("dark");
+        }
 
-            if (isDark) {
-                themeIcon.classList.remove("fa-moon");
-                themeIcon.classList.add("fa-sun");
-                localStorage.setItem("portfolio-theme", "dark");
-            } else {
-                themeIcon.classList.remove("fa-sun");
-                themeIcon.classList.add("fa-moon");
-                localStorage.setItem("portfolio-theme", "light");
-            }
+        themeToggle.addEventListener("click", () => {
+            const isDark = document.body.classList.contains("dark");
+            setTheme(isDark ? "light" : "dark");
         });
 
-        // MENU MOBILE
+
+        /* =====================================
+           MOBILE NAVBAR
+        ===================================== */
+
         const menuToggle = document.getElementById("menuToggle");
         const navMenu = document.getElementById("navMenu");
         const menuIcon = menuToggle.querySelector("i");
 
-        menuToggle.addEventListener("click", function () {
+        menuToggle.addEventListener("click", () => {
             navMenu.classList.toggle("show");
 
-            if (navMenu.classList.contains("show")) {
-                menuIcon.classList.remove("fa-bars");
-                menuIcon.classList.add("fa-xmark");
-            } else {
-                menuIcon.classList.remove("fa-xmark");
-                menuIcon.classList.add("fa-bars");
-            }
+            const isOpen = navMenu.classList.contains("show");
+
+            menuIcon.className = isOpen
+                ? "fas fa-times"
+                : "fas fa-bars";
         });
 
-        // TUTUP MENU SETELAH LINK DIKLIK
-        document.querySelectorAll(".nav-link").forEach(function (link) {
-            link.addEventListener("click", function () {
+        document.querySelectorAll(".nav-menu a").forEach(link => {
+            link.addEventListener("click", () => {
                 navMenu.classList.remove("show");
-                menuIcon.classList.remove("fa-xmark");
-                menuIcon.classList.add("fa-bars");
+                menuIcon.className = "fas fa-bars";
             });
         });
 
-        // PENANDA MENU AKTIF SAAT SCROLL
+
+        /* =====================================
+           ACTIVE NAVBAR ON SCROLL
+        ===================================== */
+
         const sections = document.querySelectorAll("section[id]");
-        const navLinks = document.querySelectorAll(".nav-link");
+        const navLinks = document.querySelectorAll(".nav-menu a");
 
-        function updateActiveMenu() {
-            let currentSection = "";
+        function updateActiveNav() {
+            let current = "home";
 
-            sections.forEach(function (section) {
+            sections.forEach(section => {
                 const sectionTop = section.offsetTop - 150;
-                const sectionBottom =
-                    sectionTop + section.offsetHeight;
 
-                if (
-                    window.scrollY >= sectionTop &&
-                    window.scrollY < sectionBottom
-                ) {
-                    currentSection = section.getAttribute("id");
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute("id");
                 }
             });
 
-            navLinks.forEach(function (link) {
-                link.classList.remove("active");
-
-                if (
-                    link.getAttribute("href") === "#" + currentSection
-                ) {
-                    link.classList.add("active");
-                }
+            navLinks.forEach(link => {
+                link.classList.toggle(
+                    "active",
+                    link.getAttribute("href") === "#" + current
+                );
             });
         }
 
-        window.addEventListener("scroll", updateActiveMenu);
-        updateActiveMenu();
+
+        /* =====================================
+           SCROLL REVEAL
+        ===================================== */
+
+        const revealElements = document.querySelectorAll(
+            ".section-title, .about-grid, .timeline-item, .skill-card, " +
+            ".project-card, .experience-card, .achievement-card, " +
+            ".certificate-card, .contact-info, .contact-card"
+        );
+
+        revealElements.forEach(element => {
+            element.classList.add("reveal");
+        });
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                    observer.unobserve(entry.target);
+                }
+
+            });
+
+        }, {
+            threshold: 0.12,
+            rootMargin: "0px 0px -30px 0px"
+        });
+
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+
+
+        /* =====================================
+           STAGGER CARD ANIMATION
+        ===================================== */
+
+        const cardGroups = document.querySelectorAll(
+            ".skills-grid, .projects-grid, .achievement-grid, .certificate-grid"
+        );
+
+        cardGroups.forEach(group => {
+
+            const cards = group.children;
+
+            Array.from(cards).forEach((card, index) => {
+                card.style.transitionDelay = `${(index % 3) * 100}ms`;
+            });
+
+        });
+
+
+        /* =====================================
+           IMAGE SKELETON SHIMMER
+        ===================================== */
+
+        const images = document.querySelectorAll("img");
+
+        images.forEach(img => {
+
+            const wrapper = img.parentElement;
+
+            if (!wrapper) return;
+
+            wrapper.style.position = "relative";
+
+            const skeleton = document.createElement("div");
+            skeleton.className = "skeleton";
+
+            function imageLoaded() {
+                img.classList.add("image-loaded");
+                img.classList.remove("image-loading");
+                skeleton.remove();
+            }
+
+            if (img.complete && img.naturalWidth > 0) {
+                img.classList.add("image-loaded");
+                return;
+            }
+
+            img.classList.add("image-loading");
+            wrapper.insertBefore(skeleton, img);
+
+            img.addEventListener("load", imageLoaded, { once: true });
+
+            img.addEventListener("error", () => {
+                skeleton.remove();
+                img.classList.remove("image-loading");
+            }, { once: true });
+
+        });
+
+
+        /* =====================================
+           BACK TO TOP
+        ===================================== */
+
+        const backToTop = document.getElementById("backToTop");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 400) {
+                backToTop.classList.add("show");
+            } else {
+                backToTop.classList.remove("show");
+            }
+
+            updateActiveNav();
+
+        });
+
+        backToTop.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+
+        /* =====================================
+           CURRENT YEAR
+        ===================================== */
+
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+
+
+        /* =====================================
+           BUTTON CLICK FEEDBACK
+        ===================================== */
+
+        document.querySelectorAll(".btn").forEach(button => {
+
+            button.addEventListener("pointerdown", () => {
+                button.style.transform = "scale(0.97)";
+            });
+
+            button.addEventListener("pointerup", () => {
+                button.style.transform = "";
+            });
+
+            button.addEventListener("pointerleave", () => {
+                button.style.transform = "";
+            });
+
+        });
+
     </script>
 
 </body>
